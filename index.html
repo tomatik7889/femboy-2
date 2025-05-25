@@ -3,35 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прогноз погоди</title>
+    <title>Погода на тиждень</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="weather-app">
-        <h1>Прогноз погоди</h1>
-        
-        <div class="search-container">
-            <input type="text" id="city-input" placeholder="Введіть місто (напр. Kyiv, UA)">
-            <button id="search-btn">Пошук</button>
+        <div class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Погода на тиждень</h1>
+            
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Введіть місто (напр. Київ)">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
         </div>
         
-        <div class="loading hidden" id="loading">Завантаження даних...</div>
+        <div class="loading hidden" id="loading">
+            <div class="spinner"><i class="fas fa-spinner fa-spin"></i></div>
+            <p>Завантаження даних...</p>
+        </div>
         
-        <div class="weather-info hidden" id="weather-info">
-            <h2 id="city-name"></h2>
-            <div class="current-weather">
-                <img id="weather-icon" src="" alt="Погодні умови">
-                <div class="temperature" id="temperature"></div>
+        <div class="current-weather hidden" id="current-weather">
+            <div class="main-info">
+                <h2 id="city-name"></h2>
+                <div class="temp-container">
+                    <div class="temperature" id="temperature"></div>
+                    <img id="weather-icon" src="" alt="Погодні умови">
+                </div>
                 <div class="description" id="description"></div>
             </div>
+            
             <div class="details">
-                <div class="detail"><span>Вологість:</span> <span id="humidity"></span></div>
-                <div class="detail"><span>Тиск:</span> <span id="pressure"></span></div>
-                <div class="detail"><span>Вітер:</span> <span id="wind"></span></div>
-                <div class="detail"><span>Відчувається:</span> <span id="feels-like"></span></div>
-                <div class="detail"><span>Хмарність:</span> <span id="clouds"></span></div>
-                <div class="detail"><span>Видимість:</span> <span id="visibility"></span></div>
+                <div class="detail">
+                    <i class="fas fa-tint"></i>
+                    <span>Вологість:</span>
+                    <span id="humidity"></span>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Тиск:</span>
+                    <span id="pressure"></span>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-wind"></i>
+                    <span>Вітер:</span>
+                    <span id="wind"></span>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-temperature-low"></i>
+                    <span>Відчувається:</span>
+                    <span id="feels-like"></span>
+                </div>
             </div>
+        </div>
+        
+        <div class="forecast hidden" id="forecast">
+            <h3><i class="fas fa-calendar-week"></i> Прогноз на тиждень</h3>
+            <div class="forecast-days" id="forecast-days"></div>
         </div>
         
         <div class="error hidden" id="error-message"></div>
@@ -41,4 +69,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
