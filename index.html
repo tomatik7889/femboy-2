@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоди</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="weather-app">
+        <h1>Прогноз погоди</h1>
+        
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Введіть місто (напр. Kyiv, UA)">
+            <button id="search-btn">Пошук</button>
+        </div>
+        
+        <div class="loading hidden" id="loading">Завантаження даних...</div>
+        
+        <div class="weather-info hidden" id="weather-info">
+            <h2 id="city-name"></h2>
+            <div class="current-weather">
+                <img id="weather-icon" src="" alt="Погодні умови">
+                <div class="temperature" id="temperature"></div>
+                <div class="description" id="description"></div>
+            </div>
+            <div class="details">
+                <div class="detail"><span>Вологість:</span> <span id="humidity"></span></div>
+                <div class="detail"><span>Тиск:</span> <span id="pressure"></span></div>
+                <div class="detail"><span>Вітер:</span> <span id="wind"></span></div>
+                <div class="detail"><span>Відчувається:</span> <span id="feels-like"></span></div>
+                <div class="detail"><span>Хмарність:</span> <span id="clouds"></span></div>
+                <div class="detail"><span>Видимість:</span> <span id="visibility"></span></div>
+            </div>
+        </div>
+        
+        <div class="error hidden" id="error-message"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
