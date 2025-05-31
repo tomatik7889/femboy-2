@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('error-message');
     const loading = document.getElementById('loading');
     
-    
     const weekDays = ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
     
     searchBtn.addEventListener('click', getWeather);
