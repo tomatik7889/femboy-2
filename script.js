@@ -117,6 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    cityInput.value = "Київ";
+    cityInput.value = "";
     getWeather();
 });
