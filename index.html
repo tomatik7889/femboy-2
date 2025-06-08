@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Погода на тиждень</title>
+    <title>Погодний Додаток</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="default">
     <div class="weather-app">
         <div class="header">
-            <h1><i class="fas fa-cloud-sun"></i> Погода на тиждень</h1>
+            <h1><i class="fas fa-cloud-sun"></i> Погода+</h1>
             
             <div class="search-container">
-                <input type="text" id="city-input" placeholder="Enter the city (e.g. Kyiv)">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <input type="text" id="city-input" placeholder="Введіть місто (напр. Київ)">
+                <button id="search-btn"><i class="fas fa-search"></i> Пошук</button>
             </div>
         </div>
         
@@ -22,9 +22,14 @@
             <div class="spinner"><i class="fas fa-spinner fa-spin"></i></div>
             <p>Завантаження даних...</p>
         </div>
+        
         <div class="current-weather hidden" id="current-weather">
-            <div class="main-info">
+            <div class="current-header">
                 <h2 id="city-name"></h2>
+                <div id="current-date"></div>
+            </div>
+            
+            <div class="main-info">
                 <div class="temp-container">
                     <div class="temperature" id="temperature"></div>
                     <img id="weather-icon" src="" alt="Погодні умови">
@@ -56,9 +61,21 @@
             </div>
         </div>
         
-        <div class="forecast hidden" id="forecast">
-            <h3><i class="fas fa-calendar-week"></i> Прогноз на тиждень</h3>
-            <div class="forecast-days" id="forecast-days"></div>
+        <div class="tabs">
+            <button class="tab-btn active" id="hourly-btn">По годинах</button>
+            <button class="tab-btn" id="daily-btn">На тиждень</button>
+        </div>
+        
+        <div class="forecast-container">
+            <div class="hourly-forecast" id="hourly-forecast">
+                <h3><i class="fas fa-clock"></i> Прогноз по годинах</h3>
+                <div class="hourly-scroll" id="hourly-scroll"></div>
+            </div>
+            
+            <div class="daily-forecast hidden" id="daily-forecast">
+                <h3><i class="fas fa-calendar-week"></i> Прогноз на тиждень</h3>
+                <div class="forecast-days" id="forecast-days"></div>
+            </div>
         </div>
         
         <div class="error hidden" id="error-message"></div>
