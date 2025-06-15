@@ -4,7 +4,7 @@
   --accent: #4895ef;
   --light: #f8f9fa;
   --dark: #212529;
-  --text-light: #f8f9fa;
+  --text-light: hsl(0, 0%, 0%);
   --text-dark: #212529;
   --success: #4cc9f0;
   --danger: #f72585;
