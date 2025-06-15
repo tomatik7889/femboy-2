@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dailyBtn.addEventListener('click', () => switchTab('daily'));
         
         // Завантажити погоду за замовчуванням
-        cityInput.value = "Київ";
+        cityInput.value = "Kyiv";
         getWeather();
     }
     
