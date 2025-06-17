@@ -409,7 +409,6 @@ body.default {
 }
 
 
-/* Смуга прокрутки для горизонтального прогнозу */
 .hourly-scroll::-webkit-scrollbar {
   height: 8px;
 }

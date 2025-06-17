@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Конфігурація
+    
     const apiKey = '2adac79368d84a468bf133523252505';
     const weekDays = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'];
     const months = ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня'];
     
-    // Елементи DOM
+    
     const searchBtn = document.getElementById('search-btn');
     const cityInput = document.getElementById('city-input');
     const currentWeather = document.getElementById('current-weather');
@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const hourlyScroll = document.getElementById('hourly-scroll');
     const forecastDays = document.getElementById('forecast-days');
     
-    // Поточні дані
+   
     let weatherData = null;
     
-    // Ініціалізація
+    
     init();
     
     function init() {
-        // Обробники подій
+      
         searchBtn.addEventListener('click', getWeather);
         cityInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') getWeather();
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hourlyBtn.addEventListener('click', () => switchTab('hourly'));
         dailyBtn.addEventListener('click', () => switchTab('daily'));
         
-        // Завантажити погоду за замовчуванням
+        
         cityInput.value = "Kyiv";
         getWeather();
     }
@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Показати завантаження
+        
         currentWeather.classList.add('hidden');
         hourlyForecast.classList.add('hidden');
         dailyForecast.classList.add('hidden');
         errorMessage.classList.add('hidden');
         loading.classList.remove('hidden');
         
-        // Отримати поточну погоду та прогноз
+        
         fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&lang=uk`)
             .then(response => {
                 if (!response.ok) {
@@ -77,17 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateUI() {
         if (!weatherData) return;
         
-        // Оновити поточну погоду
+        
         updateCurrentWeather();
         
-        // Оновити прогнози
+        
         updateHourlyForecast();
         updateDailyForecast();
         
-        // Змінити фон відповідно до погоди
         updateBackground();
         
-        // Показати інтерфейс
         currentWeather.classList.remove('hidden');
         switchTab('hourly');
     }
@@ -96,20 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const { location, current } = weatherData;
         const now = new Date();
         
-        // Оновити дату
         document.getElementById('current-date').textContent = formatDate(now);
         
-        // Оновити основну інформацію
         document.getElementById('city-name').textContent = `${location.name}, ${location.country}`;
         document.getElementById('temperature').textContent = `${Math.round(current.temp_c)}°`;
         document.getElementById('description').textContent = current.condition.text;
         
-        // Оновити іконку
         const icon = document.getElementById('weather-icon');
         icon.src = `https:${current.condition.icon}`;
         icon.alt = current.condition.text;
         
-        // Оновити деталі
         document.getElementById('humidity').textContent = `${current.humidity}%`;
         document.getElementById('pressure').textContent = `${current.pressure_mb} гПа`;
         document.getElementById('wind').textContent = `${current.wind_kph} км/год`;
@@ -123,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const currentHour = now.getHours();
         
-        // Показати прогноз на наступні 24 години
         for (let i = 0; i < 24; i++) {
             const hour = (currentHour + i) % 24;
             const forecast = weatherData.forecast.forecastday[Math.floor((currentHour + i) / 24)].hour[hour];
@@ -170,10 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const condition = weatherData.current.condition.text.toLowerCase();
         const body = document.body;
         
-        // Видалити всі класи погоди
         body.classList.remove('clear', 'clouds', 'rain', 'snow', 'thunderstorm', 'default');
         
-        // Додати відповідний клас
         if (condition.includes('ясно') || condition.includes('сонячно')) {
             body.classList.add('clear');
         } else if (condition.includes('хмар') || condition.includes('пасмурно')) {
